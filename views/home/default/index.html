@@ -32,8 +32,8 @@
     <div class="nav wrap text-right">
         <a  href="/?lang=cn" id="cn">中文</a>&nbsp;&nbsp;
         <a  href="/?lang=en" id="en">EN</a>&nbsp;&nbsp;
-        <a  href="https://www.github.com/hunterhug">Github</a>&nbsp;&nbsp;
-        <a  href="http://www.lenggirl.com/">Blog</a>
+        <!--<a  href="https://www.github.com/hunterhug">Github</a>&nbsp;&nbsp;
+        <a  href="http://www.lenggirl.com/">Blog</a>-->
     </div>
 </div>
 <!--装饰结束-->
@@ -126,7 +126,7 @@
             <!-- box -->
             <div class="hd hd-tabs" data-toggle="tabs">
                 <h2 class="tab-nav one current" data-id="#z1">
-                    <a  href="/{{.block1c.Alias}}" class="more"></a>{{.block1c.Alias}}
+                    <a  href="/{{.block1c.Alias}}" class="more"></a>{{.block1c.Title}}
                 </h2>
 
                 <h2 class="tab-nav" data-id="#z2">
@@ -223,7 +223,7 @@
         <div class="box">
 			<div class="hd">
 			<a target="blank" href="{{.block5c.Alias}}" class="more"></a>
-				<h2>{{.block5c.Title}}<span class="en">{{i18n .Lang "show"}}</span></h2>
+				<h2>{{.block5c.Title}}<!--<span class="en">{{i18n .Lang "show"}}</span>--></h2>
 			</div>
 			<div class="bd">
 				<div class="book-scroll">
@@ -390,6 +390,7 @@
     	    </p>-->
 
 {{str2html .config.Code2}}
+            <!--
          <div style="text-align: center">
              亲爱的，请先扫红包码，然后如果你想打赏的话可以用红包给我打赏
              <br/>
@@ -397,5 +398,6 @@
         <br/>
         <img src="/file/red/red1.png">
         </div>
+        -->
 </body>
 </html>

@@ -22,6 +22,7 @@ type Category struct {
 	Id         int64
 	Alias      string    `orm:"unique"`
 	Title      string    `orm:"size(100)"`
+	Username   string
 	Content    string    `orm:"type(text);null"` //内容
 	Createtime time.Time `orm:"type(datetime);null"`
 	Updatetime time.Time `orm:"type(datetime);null"`
