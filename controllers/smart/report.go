@@ -24,7 +24,7 @@ import (
 	//"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
-	"github.com/hunterhug/AmazonBigSpiderWeb/lib"
+	"github.com/hunterhug/rabbit/lib"
 	"github.com/hunterhug/parrot/util"
 )
 
@@ -349,10 +349,10 @@ func (this *ReportController) Import() {
 			sql := "Replace INTO `report`(`id`,`pasin`,`asin`,`title`,`uv`,`uvb`,`pv`,`pvb`,`bpvb`,`on`,`onr`,`v`,`c`,`d`,`aws`,`status`)VALUES"
 			sql = sql + "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,1)"
 			//fmt.Printf("%#v\n",v)
-			if len(v[2]) > 40{
+			if len(v[2]) > 40 {
 				v[2] = v[2][0:38]
 			}
-                        _, sqlr := DB.Raw(sql, id, v[0], v[1], v[2], visitnum, v[4], pv, v[6], v[7], on, v[9], vv, c, datastring, awsname).Exec()
+			_, sqlr := DB.Raw(sql, id, v[0], v[1], v[2], visitnum, v[4], pv, v[6], v[7], on, v[9], vv, c, datastring, awsname).Exec()
 			if sqlr != nil {
 				beego.Error(sqlr.Error())
 				continue
