@@ -93,6 +93,11 @@ func init() {
 	models.RunBaseDb(flags)
 	// init amazon
 	if conf.Amazon {
+		//mkdir file
+		//chmod 777 file
+		//
+		//mkdir file/back
+		//mkdir file/data
 		models.RunAmazonDb()
 	}
 

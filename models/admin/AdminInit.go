@@ -463,8 +463,11 @@ func InsertNodes() {
 			{Id: 78, Name: "Query", Title: "美国站类目数据查询", Remark: "", Level: 3, Pid: 76, Status: 1, Group: gb},
 			{Id: 79, Name: "Update", Title: "美国站类目数据更新", Remark: "", Level: 3, Pid: 76, Status: 1, Group: gb},
 
+			{Id: 791, Name: "monitor/index", Title: "采集监控", Remark: "", Level: 2, Pid: 65, Status: 1, Group: gb},
+			{Id: 792, Name: "Index", Title: "监控列表", Remark: "", Level: 3, Pid: 791, Status: 1, Group: gb},
+
 			//---------------------------------------------------
-			//智干亚马逊日本数据
+			//日本数据
 			{Id: 102, Name: "ajp", Title: "基础数据", Remark: "", Level: 1, Pid: 0, Status: 1, Group: jp},
 			{Id: 103, Name: "base/index", Title: "小类数据", Remark: "", Level: 2, Pid: 102, Status: 1, Group: jp},
 			{Id: 104, Name: "Index", Title: "日本站小类数据列表", Remark: "", Level: 3, Pid: 103, Status: 1, Group: jp},
@@ -487,8 +490,11 @@ func InsertNodes() {
 			{Id: 117, Name: "Query", Title: "日本站类目数据查询", Remark: "", Level: 3, Pid: 115, Status: 1, Group: jp},
 			{Id: 118, Name: "Update", Title: "日本站类目数据更新", Remark: "", Level: 3, Pid: 115, Status: 1, Group: jp},
 
+			{Id: 1181, Name: "monitor/index", Title: "采集监控", Remark: "", Level: 2, Pid: 102, Status: 1, Group: jp},
+			{Id: 1182, Name: "Index", Title: "监控列表", Remark: "", Level: 3, Pid: 1181, Status: 1, Group: jp},
+
 			//---------------------------------------------------
-			//智干亚马逊德国数据
+			//亚马逊德国数据
 			{Id: 119, Name: "de", Title: "基础数据", Remark: "", Level: 1, Pid: 0, Status: 1, Group: de},
 			{Id: 120, Name: "base/index", Title: "小类数据", Remark: "", Level: 2, Pid: 119, Status: 1, Group: de},
 			{Id: 121, Name: "Index", Title: "德国站小类数据列表", Remark: "", Level: 3, Pid: 120, Status: 1, Group: de},
@@ -511,8 +517,11 @@ func InsertNodes() {
 			{Id: 1332, Name: "Query", Title: "德国站类目数据查询", Remark: "", Level: 3, Pid: 133, Status: 1, Group: de},
 			{Id: 134, Name: "Update", Title: "德国站类目数据更新", Remark: "", Level: 3, Pid: 133, Status: 1, Group: de},
 
+			{Id: 1341, Name: "monitor/index", Title: "采集监控", Remark: "", Level: 2, Pid: 119, Status: 1, Group: de},
+			{Id: 1342, Name: "Index", Title: "监控列表", Remark: "", Level: 3, Pid: 1341, Status: 1, Group: de},
+
 			//---------------------------------------------------
-			//智干亚马逊英国数据
+			//亚马逊英国数据
 			{Id: 135, Name: "uk", Title: "基础数据", Remark: "", Level: 1, Pid: 0, Status: 1, Group: uk},
 			{Id: 136, Name: "base/index", Title: "小类数据", Remark: "", Level: 2, Pid: 135, Status: 1, Group: uk},
 			{Id: 137, Name: "Index", Title: "英国站小类数据列表", Remark: "", Level: 3, Pid: 136, Status: 1, Group: uk},
@@ -534,6 +543,9 @@ func InsertNodes() {
 			{Id: 150, Name: "Index", Title: "英国站类目数据列表", Remark: "", Level: 3, Pid: 149, Status: 1, Group: uk},
 			{Id: 151, Name: "Query", Title: "英国站类目数据查询", Remark: "", Level: 3, Pid: 149, Status: 1, Group: uk},
 			{Id: 152, Name: "Update", Title: "英国站类目数据更新", Remark: "", Level: 3, Pid: 149, Status: 1, Group: uk},
+
+			{Id: 1521, Name: "monitor/index", Title: "采集监控", Remark: "", Level: 2, Pid: 135, Status: 1, Group: uk},
+			{Id: 1522, Name: "Index", Title: "监控列表", Remark: "", Level: 3, Pid: 1521, Status: 1, Group: uk},
 		}
 		nodes = append(nodes, amazonnode...)
 	}

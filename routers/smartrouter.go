@@ -28,6 +28,7 @@ func smartrouter() {
 
 	//url  data
 	beego.Router("/auas/url/index", &smart.UrlController{}, "*:Index")
+	beego.Router("/auas/monitor/index", &smart.UrlController{}, "*:Monitor") // M
 	beego.Router("/auas/url/query", &smart.UrlController{}, "*:Query")
 	beego.Router("/auas/url/update", &smart.UrlController{}, "*:Update")
 	//beego.Router("/auas/url/export", &smart.UrlController{}, "*:Export")
@@ -54,6 +55,7 @@ func smartrouter() {
 
 	//url  data
 	beego.Router("/ajp/url/index", &smartjp.UrlController{}, "*:Index")
+	beego.Router("/ajp/monitor/index", &smartjp.UrlController{}, "*:Monitor") // M
 	beego.Router("/ajp/url/query", &smartjp.UrlController{}, "*:Query")
 	beego.Router("/ajp/url/update", &smartjp.UrlController{}, "*:Update")
 
@@ -73,6 +75,7 @@ func smartrouter() {
 
 	//url  data
 	beego.Router("/uk/url/index", &smartuk.UrlController{}, "*:Index")
+	beego.Router("/uk/monitor/index", &smartuk.UrlController{}, "*:Monitor") // M
 	beego.Router("/uk/url/query", &smartuk.UrlController{}, "*:Query")
 	beego.Router("/uk/url/update", &smartuk.UrlController{}, "*:Update")
 
@@ -92,6 +95,7 @@ func smartrouter() {
 
 	//url  data
 	beego.Router("/de/url/index", &smartde.UrlController{}, "*:Index")
+	beego.Router("/de/monitor/index", &smartde.UrlController{}, "*:Monitor") // M
 	beego.Router("/de/url/query", &smartde.UrlController{}, "*:Query")
 	beego.Router("/de/url/update", &smartde.UrlController{}, "*:Update")
 }

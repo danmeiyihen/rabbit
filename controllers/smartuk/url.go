@@ -29,6 +29,25 @@ type UrlController struct {
 	baseController
 }
 
+func (this *UrlController) Monitor() {
+	if this.IsAjax() {
+		DB := orm.NewOrm()
+		err := DB.Using("ukbasicdb")
+		if err != nil {
+			beego.Error("ukbasicdb err:" + err.Error())
+			this.Rsp(false, err.Error())
+		}
+
+		var datas []orm.Params
+		DB.Raw("SELECT * FROM smart_monitor").Values(&datas)
+		this.Data["json"] = &map[string]interface{}{"total": len(datas), "rows": &datas}
+		this.ServeJSON()
+		this.StopRun()
+	}
+	this.Layout = this.GetTemplate() + "/base/layout.html"
+	this.TplName = this.GetTemplate() + "/url/monitor.html"
+}
+
 func (this *UrlController) Index() {
 	DB := orm.NewOrm()
 	err := DB.Using("ukbasicdb")
