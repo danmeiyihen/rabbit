@@ -35,5 +35,5 @@ main
 *.exe~
 rabbit
 !/file
-/file/*
+!/file/*
 !/file/red
