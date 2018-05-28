@@ -314,7 +314,7 @@ func (this *ReportController) Import() {
 		for _, v := range result {
 			visitnum, e := util.SI(v[3])
 			if e != nil {
-				beego.Error(e.Error())
+				//beego.Error(e.Error())
 				continue
 			}
 			pv, e := util.SI(v[5])

@@ -263,6 +263,18 @@ func InsertGroup() {
 		if e != nil {
 			fmt.Println(e.Error())
 		}
+
+		yw := new(Group)
+		yw.Name = "业务数据"
+		yw.Title = "业务数据"
+		yw.Sort = 8
+		yw.Id = 8
+		yw.Status = 1
+		e = yw.Insert()
+		if e != nil {
+			fmt.Println(e.Error())
+		}
+
 	}
 }
 
@@ -414,7 +426,18 @@ func InsertNodes() {
 		uk := new(Group)
 		uk.Id = 7
 
+		yw := new(Group)
+		yw.Id = 8
 		amazonnode := []Node{
+			{Id: 89, Name: "csv", Title: "业务数据", Remark: "", Level: 1, Pid: 0, Status: 1, Group: yw},
+			{Id: 90, Name: "report/index", Title: "报告数据", Remark: "", Level: 2, Pid: 89, Status: 1, Group: yw},
+			{Id: 91, Name: "Index", Title: "报告数据列表", Remark: "", Level: 3, Pid: 90, Status: 1, Group: yw},
+			{Id: 92, Name: "Query", Title: "报告数据查询", Remark: "", Level: 3, Pid: 90, Status: 1, Group: yw},
+			{Id: 93, Name: "Export", Title: "报告数据导出", Remark: "", Level: 3, Pid: 90, Status: 1, Group: yw},
+			{Id: 94, Name: "Import", Title: "报告数据导入", Remark: "", Level: 3, Pid: 90, Status: 1, Group: yw},
+			{Id: 95, Name: "Delete", Title: "报告数据删除", Remark: "", Level: 3, Pid: 90, Status: 1, Group: yw},
+
+
 			{Id: 65, Name: "auas", Title: "基础数据", Remark: "", Level: 1, Pid: 0, Status: 1, Group: gb},
 			{Id: 66, Name: "base/index", Title: "小类数据", Remark: "", Level: 2, Pid: 65, Status: 1, Group: gb},
 			{Id: 67, Name: "Index", Title: "美国站小类数据列表", Remark: "", Level: 3, Pid: 66, Status: 1, Group: gb},
@@ -436,14 +459,6 @@ func InsertNodes() {
 			{Id: 77, Name: "Index", Title: "美国站类目数据列表", Remark: "", Level: 3, Pid: 76, Status: 1, Group: gb},
 			{Id: 78, Name: "Query", Title: "美国站类目数据查询", Remark: "", Level: 3, Pid: 76, Status: 1, Group: gb},
 			{Id: 79, Name: "Update", Title: "美国站类目数据更新", Remark: "", Level: 3, Pid: 76, Status: 1, Group: gb},
-
-			{Id: 89, Name: "csv", Title: "业务数据", Remark: "", Level: 1, Pid: 0, Status: 1, Group: gb},
-			{Id: 90, Name: "report/index", Title: "报告数据", Remark: "", Level: 2, Pid: 89, Status: 1, Group: gb},
-			{Id: 91, Name: "Index", Title: "美国站报告数据列表", Remark: "", Level: 3, Pid: 90, Status: 1, Group: gb},
-			{Id: 92, Name: "Query", Title: "美国站报告数据查询", Remark: "", Level: 3, Pid: 90, Status: 1, Group: gb},
-			{Id: 93, Name: "Export", Title: "美国站报告数据导出", Remark: "", Level: 3, Pid: 90, Status: 1, Group: gb},
-			{Id: 94, Name: "Import", Title: "美国站报告数据导入", Remark: "", Level: 3, Pid: 90, Status: 1, Group: gb},
-			{Id: 95, Name: "Delete", Title: "美国站报告数据删除", Remark: "", Level: 3, Pid: 90, Status: 1, Group: gb},
 
 			//---------------------------------------------------
 			//智干亚马逊日本数据
