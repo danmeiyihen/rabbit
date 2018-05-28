@@ -37,9 +37,9 @@ func InitData() {
 func InsertConfig() {
 	fmt.Println("insert config start")
 	c := new(blog.Config)
-	c.Photo = "/file/image/46/68756e746572687567aadc0c7438bb9e28d2c4eeaa310828e8.png"
+	c.Photo = "/file/image/64/68756e746572687567aadc0c7438bb9e28d2c4eeaa310828e8.png"
 	c.Id = 1
-	c.Title = "大数据智能平台"
+	c.Title = "亚马逊大数据智能选款平台Plus"
 	c.Webinfo = `
 	{
 		"1":{"name":"About","limit":6},
@@ -54,11 +54,13 @@ func InsertConfig() {
 	c.Content = `
 <div align="center">
 	<p>
-		<img src="/file/image/53/68756e7465726875671e5573ac53bb5813b6b51d47d2db806b.gif" alt="" />
+		<span style="font-size:32px;">大数据智能选款平台，高效，快捷</span><br />
+<img src="/file/image/53/68756e7465726875671e5573ac53bb5813b6b51d47d2db806b.gif" alt="" /><br />
+<span style="font-size:32px;">吴邪为你打电话好运不断运气不断</span>
 	</p>
 </div>
 	`
-	c.Slogan = "A Enterprise Web, You can have a try"
+	c.Slogan = "选款难，如何百万商品千里挑一？亚马逊跨境电商利器，助你一臂之力。"
 	c.Address = `<meta description="rabbit" >
 <!-- some other script put in here -->`
 	c.Code3 = `Power by hunterhug at 2017 此处页脚版权`
@@ -136,16 +138,17 @@ Dao le. Kun a sincere Sun what taste as a surname Ju Qi, sow not You Si Xiao typ
 
 func InsertRoll() {
 	rolls := map[string]string{
-		"tuzi":   "/file/image/46/68756e746572687567aadc0c7438bb9e28d2c4eeaa310828e8.png",
-		"me":     "/file/image/37/68756e7465726875673308fd68c821f8fb4180732625ef10ba.png",
-		"tuzizi": "/file/image/46/68756e746572687567aadc0c7438bb9e28d2c4eeaa310828e8.png",
-		"me1":    "/file/image/37/68756e7465726875673308fd68c821f8fb4180732625ef10ba.png",
+		"选款智能平台1": "/file/image/35/roll.jpg",
+		"选款智能平台2": "/file/image/37/68756e7465726875673308fd68c821f8fb4180732625ef10ba.png",
+		"选款智能平台3": "/file/image/35/roll.jpg",
+		"选款智能平台4": "/file/image/37/68756e7465726875673308fd68c821f8fb4180732625ef10ba.png",
 	}
 	for k, v := range rolls {
 		t := new(blog.Roll)
 		t.Photo = v
 		t.Status = 1
 		t.Title = k
+		t.Url = "/public"
 		t.Createtime = lib.GetTime()
 		t.Insert()
 	}
