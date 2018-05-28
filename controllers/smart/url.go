@@ -35,6 +35,7 @@ func (this *UrlController) Monitor() {
 		if err != nil {
 			beego.Error("usabasicdb err:" + err.Error())
 			this.Rsp(false, err.Error())
+			return
 		}
 
 		var datas []orm.Params

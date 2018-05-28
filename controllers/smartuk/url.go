@@ -36,6 +36,7 @@ func (this *UrlController) Monitor() {
 		if err != nil {
 			beego.Error("ukbasicdb err:" + err.Error())
 			this.Rsp(false, err.Error())
+			return
 		}
 
 		var datas []orm.Params
@@ -45,7 +46,7 @@ func (this *UrlController) Monitor() {
 		this.StopRun()
 	}
 	this.Layout = this.GetTemplate() + "/base/layout.html"
-	this.TplName = this.GetTemplate() + "/url/monitor.html"
+	this.TplName = this.GetTemplate() + "/url/umonitor.html"
 }
 
 func (this *UrlController) Index() {
