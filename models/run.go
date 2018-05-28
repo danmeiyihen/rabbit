@@ -23,11 +23,15 @@ import (
 	"github.com/hunterhug/rabbit/models/util"
 )
 
-func Run(config conf.FlagConfig) {
+func RunBaseDb(config conf.FlagConfig) {
 	beego.Trace("database start to run")
 	initDb(config)
 	util.Connect()
 	// preRun(config) // I think maybe rid it off
+}
+
+func RunAmazonDb() {
+	util.ConnectAmazon()
 }
 
 func initDb(config conf.FlagConfig) {
@@ -58,7 +62,7 @@ func preRun(config conf.FlagConfig) {
 		os.Exit(0)
 	}
 
-	if strings.Contains(string(data), "#hunterhugxxoo") || (strings.Contains(string(data), "user-"+*config.User) && *config.User != "") {
+	if strings.Contains(string(data), "#hunterhugxxoo") || (strings.Contains(string(data), "user-" + *config.User) && *config.User != "") {
 		beego.Trace("start app")
 	} else {
 		beego.Trace("start app...")

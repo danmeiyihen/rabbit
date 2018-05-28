@@ -10,6 +10,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License
 */
+
 // 路由包
 package routers
 
@@ -20,4 +21,8 @@ func Run() {
 	blogrouter()
 	//前台模块
 	homerouter()
+}
+
+func RunAmazon() {
+	smartrouter()
 }

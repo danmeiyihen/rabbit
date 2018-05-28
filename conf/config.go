@@ -28,6 +28,12 @@ type FlagConfig struct {
 	Rbac        *bool
 }
 
+type AmazonDbConfig struct {
+	Base string
+	Data string
+	Hash string
+}
+
 var (
 	AuthType      int
 	AuthGateWay   string
@@ -46,13 +52,18 @@ var (
 	DbLog    string
 	MYSQLDNS string
 
+	Amazon    bool
+	AmazonUSA AmazonDbConfig
+	AmazonJP  AmazonDbConfig
+	AmazonUK  AmazonDbConfig
+	AmazonDE  AmazonDbConfig
 	ConfigDir = util.CurDir()
 )
 
 func InitConfig() {
 	// version
 	Version = beego.AppConfig.DefaultString("version", "version2.0")
-	beego.Trace("Version:",Version)
+	beego.Trace("Version:", Version)
 
 	AuthType, _ = strconv.Atoi(beego.AppConfig.String("user_auth_type"))
 	AuthGateWay = beego.AppConfig.DefaultString("rbac_auth_gateway", "/public/login")
@@ -71,6 +82,23 @@ func InitConfig() {
 	MYSQLDNS = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8", DbUser, DbPass, DbHost, DbPort, DbName)
 
 	AdminTemplate = beego.AppConfig.DefaultString("admin_template", "default")
+
+	Amazon, _ = beego.AppConfig.Bool("amazon")
+	AmazonUSA.Data = beego.AppConfig.String("usadatadb")
+	AmazonUSA.Base = beego.AppConfig.String("usabasicdb")
+	AmazonUSA.Hash = beego.AppConfig.String("usahashdb")
+
+	AmazonJP.Data = beego.AppConfig.String("jpdatadb")
+	AmazonJP.Base = beego.AppConfig.String("jpbasicdb")
+	AmazonJP.Hash = beego.AppConfig.String("jphashdb")
+
+	AmazonUK.Data = beego.AppConfig.String("ukdatadb")
+	AmazonUK.Base = beego.AppConfig.String("ukbasicdb")
+	AmazonUK.Hash = beego.AppConfig.String("ukhashdb")
+
+	AmazonDE.Data = beego.AppConfig.String("dedatadb")
+	AmazonDE.Base = beego.AppConfig.String("debasicdb")
+	AmazonDE.Hash = beego.AppConfig.String("dehashdb")
 }
 
 func ForTestInitConfig() {

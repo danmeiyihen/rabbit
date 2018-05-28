@@ -90,11 +90,18 @@ func init() {
 
 	// init model
 	beego.Trace("model run")
-	models.Run(flags)
+	models.RunBaseDb(flags)
+	// init amazon
+	if conf.Amazon {
+		models.RunAmazonDb()
+	}
 
 	// init router
 	beego.Trace("router run")
 	routers.Run()
+	if conf.Amazon {
+		routers.RunAmazon()
+	}
 
 	beego.Trace("start open error template")
 	beego.ErrorController(&controllers.ErrorController{})

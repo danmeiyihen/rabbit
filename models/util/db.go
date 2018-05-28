@@ -155,3 +155,21 @@ func Connect() {
 
 	RegisterDBModel() // must register
 }
+
+func ConnectAmazon() {
+	orm.RegisterDataBase("usadatadb", "mysql", conf.AmazonUSA.Data)
+	orm.RegisterDataBase("usabasicdb", "mysql", conf.AmazonUSA.Base)
+	orm.RegisterDataBase("usahashdb", "mysql", conf.AmazonUSA.Hash)
+
+	orm.RegisterDataBase("jpdatadb", "mysql", conf.AmazonJP.Data)
+	orm.RegisterDataBase("jpbasicdb", "mysql", conf.AmazonJP.Base)
+	orm.RegisterDataBase("jphashdb", "mysql", conf.AmazonJP.Hash)
+
+	orm.RegisterDataBase("dedatadb", "mysql", conf.AmazonDE.Data)
+	orm.RegisterDataBase("debasicdb", "mysql", conf.AmazonDE.Base)
+	orm.RegisterDataBase("dehashdb", "mysql", conf.AmazonDE.Hash)
+
+	orm.RegisterDataBase("ukdatadb", "mysql", conf.AmazonUK.Data)
+	orm.RegisterDataBase("ukbasicdb", "mysql", conf.AmazonUK.Base)
+	orm.RegisterDataBase("ukhashdb", "mysql", conf.AmazonUK.Hash)
+}
