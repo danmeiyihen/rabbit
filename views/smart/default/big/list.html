@@ -94,6 +94,22 @@ return new Date(y,m-1,d);
             {field: 'sold', title: '自营', width: 120,align: 'center'},
             {field: 'bigname', title: '大类名', width: 120,align: 'center'},
             {field: 'rank', title: '大类排名', width: 80,align: 'center'},
+            {field: 'relate', title: '相关搭配', width: 100,align: 'center',
+             formatter: function (value, row, index) {
+                if(!value){
+                return "";
+                }
+                var jsObject = JSON.parse(value);
+                 var s = "";
+                 for ( var i=0 ; i < jsObject.length ; ++i )  {
+                 if(i==0){
+                 s = s+"<a href='https://www.amazon.com/dp/"+jsObject[i]+"'>"+jsObject[i]+"</a>";
+                 }else{
+                 s = s+"<br/><a href='https://www.amazon.com/dp/"+jsObject[i]+"'>"+jsObject[i]+"</a>";
+                 }
+                 }
+                 return "<div style='padding:10px'>"+s+"</div>";
+                }},
             {field: 'histroy', title: '历史趋势', width: 120,align: 'center',
             formatter: function (value, row, index) {
                     if(row.img!=undefined && row.img!=""){
