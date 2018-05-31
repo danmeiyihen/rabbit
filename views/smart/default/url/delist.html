@@ -115,19 +115,24 @@
         });
     }
 
-       function queryname() {
-        var name = $('#name').val();
-        $('#dg').datagrid('load', {
-           name:name
-        });
-       }
-
        function querynext() {
         var next = $('#next').val();
-        $('#dg').datagrid('load', {
-           next:next
-        });
+        querynext2(next)
        }
+
+    function querynext2(id) {
+        var uri = "/de/url/query";
+        $.post(uri, {next:id}, function (result) {
+            if(result.total==0){
+               $.messager.show({
+               title: '消息',
+               msg: '没有下级'
+               });
+            }else{
+            $('#dg').datagrid('loadData',result);
+            }
+        });
+    }
 
     function querynext2(id) {
         $('#dg').datagrid('load', {
