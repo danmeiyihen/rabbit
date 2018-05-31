@@ -5,43 +5,43 @@
     <div style="font-size:1.0em">
     <label style="margin-left:10px"> 大类名：</label>
     <select id='bigname' class="easyui-combobox">
-<option value=''>All</option>
-{{range $index, $e :=.category}}
+    <option value=''>All</option>
+    {{range $index, $e :=.category}}
         <option value={{$e.id}}>{{$e.id}}. {{$e.Bigpname}}</option>
     {{end}}
     </select>
     <label style="margin-left:10px"> 更新日期：</label>
     <input id="date" type="text" value="" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" />
-<label style="margin-left:10px"> 状态：</label>
-                <select id='isvalid' class="easyui-combobox" style="width:100px">
+    <label style="margin-left:10px"> 状态：</label>
+        <select id='isvalid' class="easyui-combobox" style="width:100px">
             <option value="2">全部</option>
             <option value="1">正常</option>
             <option value="0">已注销</option>
-            </select>
+        </select>
 
 <label style="margin-left:10px"> 出现次数：</label>
 	<input id="timesss" name="timesss" type="number" style="width:100px" value="0" />
 	<a href="#" style="margin-left:10px;width:60px" class="easyui-linkbutton" onclick="getabout()">查询</a>
 
         <script type="text/javascript">
- function myformatter(date){
- var y = date.getFullYear();
- var m = date.getMonth()+1;
- var d = date.getDate();
- return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
-}
- function myparser(s){
- if (!s) return new Date();
- var ss = (s.split('-'));
-var y = parseInt(ss[0],10);
- var m = parseInt(ss[1],10);
-var d = parseInt(ss[2],10);
-if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
-return new Date(y,m-1,d);
-}else{
- return new Date();
- }
- }
+         function myformatter(date){
+         var y = date.getFullYear();
+         var m = date.getMonth()+1;
+         var d = date.getDate();
+         return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+        }
+         function myparser(s){
+         if (!s) return new Date();
+         var ss = (s.split('-'));
+        var y = parseInt(ss[0],10);
+         var m = parseInt(ss[1],10);
+        var d = parseInt(ss[2],10);
+        if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+        return new Date(y,m-1,d);
+        }else{
+         return new Date();
+         }
+         }
  </script>
 
 <label style="margin-left:10px"> ASIN：</label>

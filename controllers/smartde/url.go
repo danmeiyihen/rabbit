@@ -22,6 +22,7 @@ import (
 	"github.com/hunterhug/parrot/util"
 	"strconv"
 	"strings"
+	"fmt"
 )
 
 type UrlController struct {
@@ -71,18 +72,24 @@ func (this *UrlController) Query() {
 		beego.Error("debasicdb err:" + err.Error())
 		this.Rsp(false, err.Error())
 	}
-	name := this.GetString("name")
 	num := 0
 	var maps []orm.Params
 	page, _ := this.GetInt("page", 1)
 	rows, _ := this.GetInt("rows", 30)
 	start := (page - 1) * rows
-	if name == "" {
+
+	name := this.GetString("name")
+	next := this.GetString("next")
+
+	if name == "" && next == "" {
 
 		isvalid, _ := this.GetInt("isvalid", 2)
 		bigname := this.GetString("bigname")
 		small := this.GetString("small")
-
+		level, _ := this.GetInt("level", 1)
+		if level > 5 || level < 0 {
+			level = 1
+		}
 		where := []string{}
 		wheresql := ""
 		if bigname == "" {
@@ -94,6 +101,10 @@ func (this *UrlController) Query() {
 		}
 		if isvalid == 1 || isvalid == 0 {
 			where = append(where, `isvalid=`+util.IS(isvalid))
+		}
+
+		if level >= 1 {
+			where = append(where, `level=`+util.IS(level))
 		}
 		if len(where) == 0 {
 
@@ -108,12 +119,18 @@ func (this *UrlController) Query() {
 		dudu1 := "SELECT count(*) as num FROM smart_category " + wheresql + ";"
 
 		DB.Raw(dudu1).QueryRow(&num)
-	} else {
+	} else if name != "" {
 		dudu := "SELECT * FROM smart_category where name=? limit " + strconv.Itoa(start) + "," + strconv.Itoa(rows) + ";"
 		DB.Raw(dudu, name).Values(&maps)
 		dudu1 := "SELECT count(*) as num FROM smart_category where name=?;"
 		DB.Raw(dudu1, name).QueryRow(&num)
+	} else if next != "" {
+		dudu := "SELECT * FROM smart_category where id regexp \"^%s-[0-9]*$\" limit " + strconv.Itoa(start) + "," + strconv.Itoa(rows) + ";"
+		DB.Raw(fmt.Sprintf(dudu, next)).Values(&maps)
+		dudu1 := "SELECT count(*) as num FROM smart_category where id regexp \"^%s-[0-9]*$\""
+		DB.Raw(fmt.Sprintf(dudu1, next)).QueryRow(&num)
 	}
+
 	if len(maps) == 0 {
 		this.Data["json"] = &map[string]interface{}{"total": num, "rows": []interface{}{}}
 	} else {
