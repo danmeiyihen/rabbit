@@ -88,7 +88,7 @@ func (this *UrlController) Query() {
 		bigname := this.GetString("bigname")
 		small := this.GetString("small")
 		level, _ := this.GetInt("level", 1)
-		if level > 5 || level < 0 {
+		if level > 6 || level < 0 {
 			level = 1
 		}
 		where := []string{}
