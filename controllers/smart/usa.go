@@ -102,7 +102,7 @@ func (this *UsaController) Query() {
 	if url != "" {
 		dudu := "SELECT * FROM `" + date + "` where id regexp \".*[|]%s$\" order by smallrank limit " + strconv.Itoa(start) + "," + strconv.Itoa(rows) + ";"
 		dudu = fmt.Sprintf(dudu, url)
-		//fmt.Println(dudu)
+		fmt.Println(dudu)
 		DB.Raw(dudu).Values(&maps)
 		dudu1 := "SELECT count(*) FROM `" + date + "` where id regexp \".*[|]%s$\""
 		dudu1 = fmt.Sprintf(dudu1, url)
