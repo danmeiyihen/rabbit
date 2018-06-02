@@ -66,6 +66,23 @@
         columns: [[
         {field: 'ck', checkbox: true},
             {field: 'id', title: 'ID', width: 100},
+            {field: 'isvalid', title: '状态', width: 120,
+                formatter: function (value, row, index) {
+                    $para = row.id;
+                    if(value=="1"){
+                        return "<span style='color:green'>存活</span>| <button style='color:red;font-size:1.1em;margin-left:10px;cursor:pointer' onclick='querynext2(\"" + $para + "\")'>查找下级</a>";
+                    }
+                    else{
+                        return "<span style='color:red'>死亡</span>| <button style='color:red;font-size:1.1em;margin-left:10px;cursor:pointer' onclick='querynext2(\"" + $para + "\")'>查找下级</a>";
+                    }
+                }
+            },
+            {field: 'idxx', title: '查看指定日期排名', width: 100,align: 'center',
+                formatter: function (value, row, index) {
+                    $para = row.id;
+                    return "<span style='color:red'></span><button style='color:red;font-size:1.1em;margin-left:10px;cursor:pointer' onclick='querynext3(\"" + $para + "\")'>点击查找</a>";
+                    }
+                },
             {field: 'url', title: '类目', width: 300,align: 'center',
                 formatter: function (value, row, index) {
                     return "<a href='" + value + "' target='_blank'>" + row.name + "</a>";
@@ -88,18 +105,7 @@
                     return value;
                 }
             },
-            {field: 'page', title: '页数', width: 50},
-            {field: 'isvalid', title: '状态', width: 120,
-                formatter: function (value, row, index) {
-                   $para = row.id;
-                   if(value=="1"){
-                    return "<span style='color:green'>存活</span>| <button style='color:red;font-size:1.1em;margin-left:10px;cursor:pointer' onclick='querynext2(\"" + $para + "\")'>查找下级</a>";
-                   }
-                   else{
-                    return "<span style='color:red'>死亡</span>| <button style='color:red;font-size:1.1em;margin-left:10px;cursor:pointer' onclick='querynext2(\"" + $para + "\")'>查找下级</a>";
-                    }
-                }
-            }
+            {field: 'page', title: '页数', width: 50}
         ]]
     });
 
@@ -140,6 +146,11 @@
             $('#dg').datagrid('loadData',result);
             }
         });
+    }
+
+
+    function querynext3(url){
+        window.open("/auas/base/index?url="+url)
     }
 
      function good() {
