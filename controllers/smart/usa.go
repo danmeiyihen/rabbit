@@ -171,7 +171,7 @@ func (this *UsaController) Query() {
 		}
 	} else {
 		dudu := "SELECT * FROM `" + date + "`where id like '" + asin + "|%' limit " + strconv.Itoa(start) + "," + strconv.Itoa(rows) + ";"
-		//fmt.Println(dudu)
+		fmt.Println(dudu)
 		DB.Raw(dudu).Values(&maps)
 		dudu1 := "SELECT count(*) as num FROM `" + date + "`where id like '" + asin + "|%'"
 		DB.Raw(dudu1).QueryRow(&num)
